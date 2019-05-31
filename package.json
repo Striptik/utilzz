@@ -26,11 +26,16 @@
     "version": "git add . src",
     "postversion": "git push && git push --tags",
     "docs": "typedoc --out docs src",
-    "gh-pages": "rimraf docs && npm run docs && gh-pages -d docs"
+    "gh-pages": "rimraf docs && npm run docs && gh-pages -d docs",
+    "cover": "istanbul cover node_modules/mocha/bin/_mocha test/*.js - - -R spec",
+    "ci": "yarn lint && yarn build && yarn cover"
   },
   "devDependencies": {
+    "@types/istanbul": "^0.4.30",
     "@types/jest": "^24.0.13",
+    "coveralls": "^3.0.3",
     "gh-pages": "^2.0.1",
+    "istanbul": "^0.4.5",
     "jest": "^24.8.0",
     "ts-jest": "^24.0.2",
     "tslint": "^5.17.0",
